@@ -16,8 +16,8 @@ def tx_execute_before(from, to, value, gasLimit, gasPrice, data) :
 def tx_execute_after(from, to, value, gasLimit, gasPrice, data, delegatee=none):
     # 1. check if delegatee passed or not
     if delegatee:
-        # 1-1. check if delegatee` is registered in staminaContract
-        if staminaContract.delegatee(to):
+        # 1-1. check if (from, delegatee) pair is registered in staminaContract
+        if staminaContract.isValidPair(from, delegatee):
             # 1-1-1. check if `delegatee` can pay upfront cost(only gasLimit * gasPrice)
             assert staminaContract.balanceOf(delegatee) >= gasLimit * gasPrice
 
