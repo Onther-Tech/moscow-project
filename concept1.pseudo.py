@@ -27,10 +27,10 @@ def tx_execute_after(from, to, value, gasLimit, gasPrice, data) :
         # 1-3. substract upfront cost(only value)
         substractBalance(from, value)
 
-        # 1-3. execute EVM
+        # 1-4. execute EVM
         executeVM(from, to, value, gasLimit, gasPrice, data)
 
-        # 1-4. collect refunded gas to delegatee
+        # 1-5. collect refunded gas to delegatee
         staminaContract.addBalance(delegatee, gasRemained * gasPrice)
 
     # 2. case where delegatee does not exist
