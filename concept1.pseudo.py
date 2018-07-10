@@ -13,8 +13,7 @@ def tx_execute_before(from, to, value, gasLimit, gasPrice, data) :
     addBalance(from, gasRemained * gasPrice)
 
 def tx_execute_after(from, to, value, gasLimit, gasPrice, data) :
-    # 0. check if to has stamina balance, execute EVM
-    # Check <from> has valid delegatee pair --> (from, delegatee)
+    # 0. check if (from, delegatee) pair exists. execute EVM.
     # getDelegatee() returns <delegatee address>
     # or it returns <None>
     delegatee = staminaContract.getDelegateeAddress(from)
