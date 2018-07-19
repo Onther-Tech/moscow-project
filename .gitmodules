@@ -1,0 +1,3 @@
+[submodule "moscow-stamina"]
+	path = moscow-stamina
+	url = https://github.com/Onther-Tech/moscow-stamina.git
